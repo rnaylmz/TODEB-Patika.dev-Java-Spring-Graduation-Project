@@ -1,4 +1,4 @@
-package com.todeb.rnaylmz.creditapplicationsystem.model.enums;
+package com.todeb.rnaylmz.creditapplicationsystem.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +16,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class CreditLimit implements Serializable {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private String id;
 }
