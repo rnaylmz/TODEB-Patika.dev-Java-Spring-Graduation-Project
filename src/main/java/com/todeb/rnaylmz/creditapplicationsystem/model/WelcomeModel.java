@@ -1,4 +1,7 @@
 package com.todeb.rnaylmz.creditapplicationsystem.model;
 
-public class CreditScore {
+import lombok.Data;
+
+@Data
+public class WelcomeModel {
 }
