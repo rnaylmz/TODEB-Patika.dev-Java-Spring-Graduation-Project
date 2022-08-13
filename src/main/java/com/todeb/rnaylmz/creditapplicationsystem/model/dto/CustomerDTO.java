@@ -1,5 +1,6 @@
 package com.todeb.rnaylmz.creditapplicationsystem.model.dto;
 
+import com.todeb.rnaylmz.creditapplicationsystem.model.enums.Gender;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -8,16 +9,19 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class CustomerDTO {
 
-    @NotBlank
-    private String name;
+    private String identityNumber;
 
     @NotBlank
-    private String surName;
+    private String firstName;
+
+    @NotBlank
+    private String lastName;
 
     @NotBlank
     private String email;
 
-    private String gender;
+    private Gender gender;
     private Integer age;
-    private Long phone;
+    private String phoneNumber;
+    private Double salary;
 }

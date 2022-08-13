@@ -1,6 +1,7 @@
 package com.todeb.rnaylmz.creditapplicationsystem.model.entity;
 
 
+import com.todeb.rnaylmz.creditapplicationsystem.model.enums.Gender;
 import lombok.*;
 import org.springframework.validation.annotation.Validated;
 
@@ -35,7 +36,7 @@ public class Customer implements Serializable {
     private Integer age;
 
     @Enumerated(EnumType.STRING)
-    private String gender;
+    private Gender gender;
 
     @NotNull(message =  "you have to enter your address")
     private String address;
@@ -54,13 +55,13 @@ public class Customer implements Serializable {
 
 
     @OneToOne
-    @Column(name = "customer_credit_score")
+    //@Column(name = "customer_credit_score")
     private CreditScore creditScore;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
     private List<CreditApplication> creditApplications;
 
-    public Customer(String identityNumber, String firstName, String lastName, String email, Integer age, String gender, String address, String job, Double salary, String phoneNumber) {
+    public Customer(String identityNumber, String firstName, String lastName, String email, Integer age, Gender gender, String address, String job, Double salary, String phoneNumber) {
         this.identityNumber = identityNumber;
         this.firstName = firstName;
         this.lastName = lastName;
