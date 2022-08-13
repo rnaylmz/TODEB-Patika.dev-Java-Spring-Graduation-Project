@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class EntityNotFoundException extends RuntimeException{
 
-    public EntityNotFoundException(String entityName, String message) {
-        super("Related " + entityName + " not found with : [" + message + "]");
+    public EntityNotFoundException(String entityName) {
+        super("Related " + entityName + " not found with : " );
     }
 
 }
