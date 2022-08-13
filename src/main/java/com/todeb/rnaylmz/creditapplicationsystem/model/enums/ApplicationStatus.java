@@ -1,8 +1,8 @@
 package com.todeb.rnaylmz.creditapplicationsystem.model.enums;
 
-public enum Gender {
+public enum ApplicationStatus {
 
-    WOMAN,
-    MAN,
-    UNSPECIFIED,
+    ACTIVE,
+    PASSIVE,
+
 }

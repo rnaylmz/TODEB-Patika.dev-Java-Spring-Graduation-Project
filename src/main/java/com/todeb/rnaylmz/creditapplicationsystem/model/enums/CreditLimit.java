@@ -1,33 +1,20 @@
 package com.todeb.rnaylmz.creditapplicationsystem.model.enums;
 
 public enum CreditLimit {
+    LOW(10000),
+    HIGH(20000),
+    ;
 
-    First_condition(10000.0,5000.0),
-    Second_condition (20000.0, 5000.0),
-    Special_condition (0.0,0.0);
-
-
-    private Double creditLimit;
-    private Double salaryLimit;
-
-    CreditLimit(Double creditLimit, Double salaryLimit){
-        this.creditLimit = creditLimit;
-        this.salaryLimit = salaryLimit;
+    private int CreditLimit;
+    CreditLimit(int creditLimit) {
+        CreditLimit = creditLimit;
     }
 
-    public Double getCreditLimit() {
-        return creditLimit;
+    public int getCreditLimit() {
+        return CreditLimit;
     }
 
-    public void setCreditLimit(Double creditLimit) {
-        this.creditLimit = creditLimit;
-    }
-
-    public Double getSalaryLimit() {
-        return salaryLimit;
-    }
-
-    public void setSalaryLimit(Double salaryLimit) {
-        this.salaryLimit = salaryLimit;
+    public void setCreditLimit(int creditLimit) {
+        CreditLimit = creditLimit;
     }
 }

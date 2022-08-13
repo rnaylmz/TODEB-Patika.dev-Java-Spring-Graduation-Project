@@ -1,19 +1,25 @@
 package com.todeb.rnaylmz.creditapplicationsystem.model.enums;
-public enum  CreditResult {
 
-    CONFIRMED(1000.0),
-    REJECTED(500.0);
+import com.todeb.rnaylmz.creditapplicationsystem.model.entity.CreditScore;
 
-    private Double creditScore;
-    CreditResult(Double creditScore){
+public enum CreditResult {
+
+    CONFIRMED(new CreditScore()),
+    //NOT_RESULTED(new CreditScore()),
+    REJECTED(new CreditScore());
+
+    private CreditScore creditScore;
+
+    CreditResult(CreditScore creditScore){
         this.creditScore = creditScore;
     }
 
-    public Double getCreditScore() {
+    public CreditScore getCreditScore() {
         return creditScore;
     }
 
-    public void setCreditScore(Double creditScore) {
+    public void setCreditScore(CreditScore creditScore) {
         this.creditScore = creditScore;
     }
+
 }
