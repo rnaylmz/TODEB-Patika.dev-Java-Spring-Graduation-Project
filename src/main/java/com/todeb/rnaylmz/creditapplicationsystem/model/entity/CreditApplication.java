@@ -1,5 +1,7 @@
 package com.todeb.rnaylmz.creditapplicationsystem.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.todeb.rnaylmz.creditapplicationsystem.model.enums.ApplicationStatus;
 import com.todeb.rnaylmz.creditapplicationsystem.model.enums.CreditResult;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,8 +25,8 @@ public class CreditApplication {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "credit_application_id", nullable = false)
-    private String id;
+    @Column(name = "credit_application_id", nullable = false, updatable = false)
+    private Integer id;
 
     @Column(name = "credit_limit")
     private Double creditLimit;
@@ -32,6 +34,9 @@ public class CreditApplication {
     @Enumerated(EnumType.STRING)
     @Column(name = "credit_result")
     private CreditResult creditResult;
+
+    @Enumerated(EnumType.STRING)
+    private ApplicationStatus applicationStatus;
 
 
     @CreationTimestamp
@@ -41,14 +46,20 @@ public class CreditApplication {
 
 
     @NotNull(message = "cannot be credit application without customer")
-    @JoinColumn(name = "identity_number", referencedColumnName = "identity_number")
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "customer_identity_number", referencedColumnName = "identity_number")
     private Customer customer;
 
-    public CreditApplication(Double creditLimit, CreditResult creditResult, Customer customer) {
-        this.creditLimit = creditLimit;
+
+  /*  @OneToOne(fetch = FetchType.LAZY)
+    private CreditScore creditScore;*/
+
+    public CreditApplication( CreditResult creditResult, Customer customer, ApplicationStatus applicationStatus) {
+        //this.creditLimit = creditLimit;
         this.creditResult = creditResult;
         this.customer = customer;
+        this.applicationStatus = applicationStatus;
     }
 
     public CreditApplication(Customer customer){

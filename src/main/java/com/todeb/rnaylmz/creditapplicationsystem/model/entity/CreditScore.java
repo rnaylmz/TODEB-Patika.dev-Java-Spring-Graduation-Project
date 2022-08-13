@@ -1,13 +1,12 @@
 package com.todeb.rnaylmz.creditapplicationsystem.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.todeb.rnaylmz.creditapplicationsystem.model.enums.CreditLimit;
-import com.todeb.rnaylmz.creditapplicationsystem.model.enums.CreditResult;
+import com.todeb.rnaylmz.creditapplicationsystem.model.CreditScoreRange;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Data
@@ -20,24 +19,19 @@ public class CreditScore implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
+    @NotNull
+    @Column(name = "credit_score")
+    private int creditScore;
 
+    @NotNull
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "customer_identity_number", referencedColumnName = "identity_number")
+    private Customer customer;
 
-    @JsonIgnore
-    @Enumerated
-    private CreditResult creditResult;
-
-    @JsonIgnore
-    @Enumerated(EnumType.STRING)
-    private CreditLimit creditLimit;
-
-
-  /*  TO-DO
-  CreditScoreService
-    kredi skoru 500 altı red
-    kredi skoru 500-1000 arası ve maaşı 5k altı ise onay ve 10k limit
-    kredi skoru 500-1000 arası ve maaşı 5k üstü ise onay ve 20k limit
-    kredi skoru >= 1000 ise onay ve (aylık gelir*kredi skor çarpanı) limit*/
-
+    /*@NotNull
+    @OneToOne(fetch = FetchType.LAZY)
+    @Column(name = "credit_score_range", )
+    private CreditScoreRange creditScoreRange;*/
 
 }
 
