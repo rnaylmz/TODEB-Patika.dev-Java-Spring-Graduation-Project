@@ -10,6 +10,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(name = "user")
 public class User {
 
     @Id
@@ -26,13 +27,12 @@ public class User {
     @Size(min = 5, message = "Minimum password length: 5 characters")
     private String password;
 
-   */
-/* @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+ @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_roles", joinColumns = {
             @JoinColumn(name = "user_id")}, inverseJoinColumns = {
             @JoinColumn(name = "role_id")})
 
-    public List<Role> roles;*//*
+    public List<Role> roles;
 
 }
 */

@@ -1,4 +1,5 @@
-/*package com.todeb.rnaylmz.creditapplicationsystem.config;
+/*
+package com.todeb.rnaylmz.creditapplicationsystem.config;
 
 import com.todeb.rnaylmz.creditapplicationsystem.security.JwtTokenFilterConfigurer;
 import com.todeb.rnaylmz.creditapplicationsystem.security.JwtTokenProvider;
@@ -22,7 +23,7 @@ public class WebSecurityConfig {
 
     private final JwtTokenProvider jwtTokenProvider;
 
-    //@Override
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
 
@@ -65,11 +66,9 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder(12);
     }
 
-    *//*@Override
+    @Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
-    }*/
-
-
-
+    }
+*/
