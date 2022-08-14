@@ -8,9 +8,9 @@ public interface ICreditScoreRepository extends JpaRepository<Customer, String> 
 
     CreditScore findCustomerByIdentityNumber(String identityNumber);
 
-    boolean addScore(Customer customer);
+    //boolean addScore(Customer customer);
 
-    void getCustomerByCreditScoreNotNull(CreditScore creditScore);
+    CreditScore getCustomerByCreditScoreNotNull(CreditScore creditScore);
 
     CreditScore getCreditScoreByIdentityNumber(String identityNumber);
 

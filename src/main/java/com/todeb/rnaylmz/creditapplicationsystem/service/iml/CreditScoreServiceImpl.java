@@ -17,7 +17,7 @@ import java.util.SplittableRandom;
 @Component
 public class CreditScoreServiceImpl implements CreditScoreService {
 
-    private ICreditScoreRepository creditScoreRepository;
+    private final ICreditScoreRepository creditScoreRepository;
 
 
     @Override
@@ -29,7 +29,7 @@ public class CreditScoreServiceImpl implements CreditScoreService {
         CreditScore creditScore = new CreditScore();
         creditScore.setCreditScore(randomWithSplittableRandom);
         creditScore.setCustomer(customer);
-        creditScoreRepository.getCustomerByCreditScoreNotNull(creditScore);
+        creditScoreRepository.getCustomerByCreditScoreNotNull(new CreditScore());
         return true;
     }
 

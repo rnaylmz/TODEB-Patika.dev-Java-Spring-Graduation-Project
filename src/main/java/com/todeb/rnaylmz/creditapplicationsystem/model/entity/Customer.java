@@ -54,14 +54,13 @@ public class Customer implements Serializable {
     private String phoneNumber;
 
 
-    @OneToOne
-    //@Column(name = "customer_credit_score")
+    @OneToOne(fetch = FetchType.LAZY)
     private CreditScore creditScore;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
     private List<CreditApplication> creditApplications;
 
-    public Customer(String identityNumber, String firstName, String lastName, String email, Integer age, Gender gender, String address, String job, Double salary, String phoneNumber) {
+   /* public Customer(String identityNumber, String firstName, String lastName, String email, Integer age, Gender gender, String address, String job, Double salary, String phoneNumber) {
         this.identityNumber = identityNumber;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -73,5 +72,5 @@ public class Customer implements Serializable {
         this.salary = salary;
         this.phoneNumber = phoneNumber;
     }
-
+*/
 }

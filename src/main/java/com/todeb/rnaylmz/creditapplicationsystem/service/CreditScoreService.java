@@ -7,5 +7,5 @@ import javax.validation.Valid;
 
 public interface CreditScoreService {
 
-    boolean addScore(@Valid Customer customer);
+    boolean addScore( Customer customer);
 }

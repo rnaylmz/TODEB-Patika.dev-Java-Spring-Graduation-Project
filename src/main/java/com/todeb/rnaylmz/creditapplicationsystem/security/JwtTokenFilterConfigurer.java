@@ -1,4 +1,4 @@
-package com.todeb.rnaylmz.creditapplicationsystem.security;
+//package com.todeb.rnaylmz.creditapplicationsystem.security;
 
-public class JwtTokenFilterConfigurer {
-}
+//public class JwtTokenFilterConfigurer {
+
