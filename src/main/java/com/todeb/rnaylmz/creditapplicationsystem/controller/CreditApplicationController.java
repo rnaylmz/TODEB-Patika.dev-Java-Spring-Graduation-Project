@@ -15,15 +15,18 @@ import javax.validation.Valid;
 @Validated
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/credit_application")
+@RequestMapping("/api/application")
 public class CreditApplicationController {
 
     private CreditApplicationService creditApplicationService;
 
-    @PostMapping
+    @PostMapping(name = "/all")
     public ResponseEntity<CreditApplication> application(@Valid String identityNumber){
-       return null;
+
+        return null;
     }
+
+
 
 
 

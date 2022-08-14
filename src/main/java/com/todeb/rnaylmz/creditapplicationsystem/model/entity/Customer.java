@@ -2,13 +2,17 @@ package com.todeb.rnaylmz.creditapplicationsystem.model.entity;
 
 
 import com.todeb.rnaylmz.creditapplicationsystem.model.enums.Gender;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @Entity
@@ -54,22 +58,10 @@ public class Customer implements Serializable {
     private String phoneNumber;
 
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
     private CreditScore creditScore;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
     private CreditApplication creditApplications;
 
-        public Customer(String identityNumber, String firstName, String lastName, String email, Integer age, Gender gender, String address, String job, Double salary, String phoneNumber) {
-        this.identityNumber = identityNumber;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.age = age;
-        this.gender = gender;
-        this.address = address;
-        this.job = job;
-        this.salary = salary;
-        this.phoneNumber = phoneNumber;
-    }
 }

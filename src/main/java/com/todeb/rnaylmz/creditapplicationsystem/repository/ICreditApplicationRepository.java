@@ -6,6 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ICreditApplicationRepository extends JpaRepository<Customer, String> {
-
-    Customer findCustomerByIdentityNumber(String identityNumber);
 }

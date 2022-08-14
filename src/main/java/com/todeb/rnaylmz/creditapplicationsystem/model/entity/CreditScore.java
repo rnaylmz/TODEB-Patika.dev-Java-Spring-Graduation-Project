@@ -1,5 +1,6 @@
 package com.todeb.rnaylmz.creditapplicationsystem.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,8 @@ public class CreditScore implements Serializable {
 
     @NotNull
     @OneToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "customer_credit_score", referencedColumnName = "credit_score")
+    @JsonBackReference
+    @JoinColumn(name = "customer_identity_number", referencedColumnName = "identity_number")
     private Customer customer;
 
 }

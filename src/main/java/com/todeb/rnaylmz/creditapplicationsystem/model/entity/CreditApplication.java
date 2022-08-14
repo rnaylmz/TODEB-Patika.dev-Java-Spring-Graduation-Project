@@ -50,19 +50,4 @@ public class CreditApplication {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_identity_number", referencedColumnName = "identity_number")
     private Customer customer;
-
-  /*  @OneToOne(fetch = FetchType.LAZY)
-    private CreditScore creditScore;*/
-
-    public CreditApplication( CreditResult creditResult, Customer customer, ApplicationStatus applicationStatus) {
-        //this.creditLimit = creditLimit;
-        this.creditResult = creditResult;
-        this.customer = customer;
-        this.applicationStatus = applicationStatus;
-    }
-
-    public CreditApplication(Customer customer){
-        this.customer = customer;
-    }
-
 }
