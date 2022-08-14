@@ -1,9 +1,13 @@
 package com.todeb.rnaylmz.creditapplicationsystem.testservice;
 
-import org.springframework.stereotype.Service;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@Service
+
+@ExtendWith(MockitoExtension.class)
 public class CustomerServiceTest {
+
+
 
 
 }

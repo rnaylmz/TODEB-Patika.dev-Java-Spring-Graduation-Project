@@ -1,18 +1,19 @@
-/*
 package com.todeb.rnaylmz.creditapplicationsystem.security;
 
+import com.todeb.rnaylmz.creditapplicationsystem.exception.CustomJwtException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class JwtTokenFilter  {
+// We should use OncePerRequestFilter since we are doing a database call, there is no point in doing this more than once
+public class JwtTokenFilter extends OncePerRequestFilter {
+
     private JwtTokenProvider jwtTokenProvider;
 
     public JwtTokenFilter(JwtTokenProvider jwtTokenProvider) {
@@ -32,9 +33,11 @@ public class JwtTokenFilter  {
             SecurityContextHolder.clearContext();
             httpServletResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, ex.getMessage());
             return;
+        } catch (CustomJwtException e) {
+            throw new RuntimeException(e);
         }
 
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
+
 }
-*/

@@ -1,13 +1,19 @@
-/*
 package com.todeb.rnaylmz.creditapplicationsystem.security;
 
 import com.todeb.rnaylmz.creditapplicationsystem.model.entity.User;
+import com.todeb.rnaylmz.creditapplicationsystem.repository.IUserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+
+@Service
+@RequiredArgsConstructor
 public class MyUserDetails implements UserDetailsService {
-    private UserRepository userRepository;
+
+    private final IUserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -28,5 +34,5 @@ public class MyUserDetails implements UserDetailsService {
                 .build();
 
     }
+
 }
-*/

@@ -1,4 +1,3 @@
-/*
 package com.todeb.rnaylmz.creditapplicationsystem.security;
 
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
@@ -18,7 +17,7 @@ public class JwtTokenFilterConfigurer extends SecurityConfigurerAdapter<DefaultS
         JwtTokenFilter customFilter = new JwtTokenFilter(jwtTokenProvider);
         http.addFilterBefore(customFilter, UsernamePasswordAuthenticationFilter.class);
     }
+}
 
 
 
-*/

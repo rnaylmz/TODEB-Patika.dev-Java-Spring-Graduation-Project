@@ -1,6 +1,5 @@
-/*
 package com.todeb.rnaylmz.creditapplicationsystem.security;
-
+import com.todeb.rnaylmz.creditapplicationsystem.exception.CustomJwtException;
 import com.todeb.rnaylmz.creditapplicationsystem.model.enums.Role;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
@@ -22,14 +21,18 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-
 @Component
 public class JwtTokenProvider {
-    @Value("${security.jwt.token.secret-key:secret-key}")
+
+    /**
+     * THIS IS NOT A SECURE PRACTICE! For simplicity, we are storing a static key here. Ideally, in a
+     * microservices environment, this key would be kept on a config-server.
+     */
+    @Value("${security.jwt.token.secret-key:default-key}")
     private String secretKey;
 
-    @Value("${security.jwt.token.expire-length:300000}")
-    private long validityInMilliseconds = 1000 * 60 * 60 * 24; // 1 day
+    @Value("${security.jwt.token.expire-time:100000}")
+    private long validityInMilliseconds; // = 1000 * 60 * 60 * 24; // 1 day
 
     @Autowired
     private MyUserDetails myUserDetails;
@@ -42,7 +45,8 @@ public class JwtTokenProvider {
     public String createToken(String username, List<Role> roles) {
 
         Claims claims = Jwts.claims().setSubject(username);
-        claims.put("auth", roles.stream().map(s -> new SimpleGrantedAuthority(s.getAuthority())).filter(Objects::nonNull).collect(Collectors.toList()));
+        claims.put("auth", roles.stream().map(s -> new SimpleGrantedAuthority(s.getAuthority()))
+                .filter(Objects::nonNull).collect(Collectors.toList()));
 
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMilliseconds);
@@ -72,7 +76,7 @@ public class JwtTokenProvider {
         return null;
     }
 
-    public boolean validateToken(String token) {
+    public boolean validateToken(String token) throws CustomJwtException {
         try {
             Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
             return true;
@@ -80,5 +84,5 @@ public class JwtTokenProvider {
             throw new CustomJwtException("Expired or invalid JWT token", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 }
-*/
