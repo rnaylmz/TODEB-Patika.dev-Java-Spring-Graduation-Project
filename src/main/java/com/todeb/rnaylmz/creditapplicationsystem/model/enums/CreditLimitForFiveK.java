@@ -1,12 +1,13 @@
 package com.todeb.rnaylmz.creditapplicationsystem.model.enums;
 
-public enum CreditLimit {
+public enum CreditLimitForFiveK {
     LOW(10000),
     HIGH(20000),
     ;
 
     private int CreditLimit;
-    CreditLimit(int creditLimit) {
+    CreditLimitForFiveK(int creditLimit) {
+
         CreditLimit = creditLimit;
     }
 

@@ -29,7 +29,7 @@ public class CreditScoreServiceImpl implements CreditScoreService {
         CreditScore creditScore = new CreditScore();
         creditScore.setCreditScore(randomWithSplittableRandom);
         creditScore.setCustomer(customer);
-        creditScoreRepository.getCustomerByCreditScoreNotNull(new CreditScore());
+        creditScoreRepository.getCustomerByCreditScore(new CreditScore());
         return true;
     }
 

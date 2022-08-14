@@ -1,3 +1,4 @@
+/*
 package com.todeb.rnaylmz.creditapplicationsystem.config;
 
 import org.springframework.context.annotation.Bean;
@@ -35,3 +36,4 @@ public class SwaggerConfig {
                 "https://swagger.io/docs/");
     }
 }
+*/

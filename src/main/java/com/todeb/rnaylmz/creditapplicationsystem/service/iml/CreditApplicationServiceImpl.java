@@ -5,13 +5,10 @@ import com.todeb.rnaylmz.creditapplicationsystem.model.entity.CreditApplication;
 import com.todeb.rnaylmz.creditapplicationsystem.model.entity.CreditScore;
 import com.todeb.rnaylmz.creditapplicationsystem.model.entity.Customer;
 import com.todeb.rnaylmz.creditapplicationsystem.model.enums.ApplicationStatus;
-import com.todeb.rnaylmz.creditapplicationsystem.model.enums.CreditLimit;
+import com.todeb.rnaylmz.creditapplicationsystem.model.enums.CreditLimitForFiveK;
 import com.todeb.rnaylmz.creditapplicationsystem.model.enums.CreditResult;
-import com.todeb.rnaylmz.creditapplicationsystem.repository.ICreditApplicationRepository;
-import com.todeb.rnaylmz.creditapplicationsystem.repository.ICreditScoreRepository;
 import com.todeb.rnaylmz.creditapplicationsystem.repository.ICustomerRepository;
 import com.todeb.rnaylmz.creditapplicationsystem.service.CreditApplicationService;
-import com.todeb.rnaylmz.creditapplicationsystem.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,15 +18,16 @@ import java.util.Date;
 @RequiredArgsConstructor
 public class CreditApplicationServiceImpl implements CreditApplicationService {
 
-    private final ICreditApplicationRepository creditApplicationRepository;
-    private final ICreditScoreRepository creditScoreRepository;
+    //private final ICreditApplicationRepository creditApplicationRepository;
+    //private final ICreditScoreRepository creditScoreRepository;
     private final ICustomerRepository customerRepository;
-    private final NotificationService notificationService;
+   // private final NotificationService notificationService;
 
     @Override
     public boolean createApplication(String identityNumber) {
         Customer customer = customerRepository.getCustomerByIdentityNumber(identityNumber);
-        if (customer.getCreditApplications().stream().anyMatch(creditApplication -> creditApplication.getApplicationStatus() == ApplicationStatus.PASSIVE)) {
+        if (customer.getCreditApplications().equals(ApplicationStatus.PASSIVE)
+                /*customer.getCreditApplications().stream().anyMatch(creditApplication -> creditApplication.getApplicationStatus() == ApplicationStatus.PASSIVE)*/) {
             CreditApplication creditApplication = new CreditApplication();
             creditApplication.setCustomer(customer);
             creditApplication.setApplicationDate(new Date());
@@ -51,9 +49,9 @@ public class CreditApplicationServiceImpl implements CreditApplicationService {
             CreditApplication.builder().creditLimit(salary * creditMultiplier);
 
         } else if (CreditScoreRange.HIGH.contains(score.getCreditScore()) && salary < 5000){
-            CreditLimit.LOW.ordinal();
+            CreditLimitForFiveK.LOW.getCreditLimit();
         } else if (CreditScoreRange.HIGH.contains(score.getCreditScore()) && salary >5000){
-           CreditLimit.HIGH.ordinal();
+           CreditLimitForFiveK.HIGH.getCreditLimit();
         }
     }
 

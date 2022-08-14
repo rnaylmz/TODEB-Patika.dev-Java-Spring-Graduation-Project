@@ -47,10 +47,9 @@ public class CreditApplication {
 
     @NotNull(message = "cannot be credit application without customer")
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "customer_identity_number", referencedColumnName = "identity_number")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_identity_number", referencedColumnName = "identity_number")
     private Customer customer;
-
 
   /*  @OneToOne(fetch = FetchType.LAZY)
     private CreditScore creditScore;*/
@@ -65,4 +64,5 @@ public class CreditApplication {
     public CreditApplication(Customer customer){
         this.customer = customer;
     }
+
 }
