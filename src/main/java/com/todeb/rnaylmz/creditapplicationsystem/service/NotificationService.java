@@ -5,4 +5,6 @@ import com.todeb.rnaylmz.creditapplicationsystem.model.entity.CreditApplication;
 public interface NotificationService {
 
     String sendMessageForResult(CreditApplication creditApplication);
+
+
 }

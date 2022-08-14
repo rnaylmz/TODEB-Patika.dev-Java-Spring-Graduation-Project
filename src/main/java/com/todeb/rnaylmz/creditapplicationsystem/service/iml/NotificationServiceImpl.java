@@ -9,12 +9,11 @@ import org.springframework.stereotype.Service;
 public class NotificationServiceImpl implements NotificationService {
 
     @Override
-    public String sendMessageForResult(CreditApplication creditApplication) {
-        String resultMessage = "Your credit application has " + creditApplication.getCreditResult() ;
-        if(creditApplication.getCreditResult() == CreditResult.CONFIRMED) {
+    public String  sendMessageForResult(CreditApplication creditApplication) {
+        String resultMessage = "Your credit application has " + creditApplication.getCreditResult();
+        if (creditApplication.getCreditResult() == CreditResult.CONFIRMED) {
             resultMessage += " and your credit limit is " + creditApplication.getCreditLimit() + " TL.";
         }
-
-        return "Notification message is sent to " + creditApplication.getCustomer().getPhoneNumber() + " number with the message : " + resultMessage ;
+        return ("Notification message is sent to " +creditApplication.getCustomer().getPhoneNumber() + " number with the message : " + resultMessage);
     }
 }
