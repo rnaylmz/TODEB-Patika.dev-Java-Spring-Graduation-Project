@@ -1,6 +1,6 @@
-#TODEB-Patika.dev-Java-Spring-Bitirme-Projesi
+# TODEB-Patika.dev-Java-Spring-Bitirme-Projesi
 
-##REQUERINMENTS
+## REQUERINMENTS
 1.
 2.
 3.
@@ -10,7 +10,7 @@
 7.
 
 
-##ANALYSIS
+## ANALYSIS
 1.
 2.
 3.
