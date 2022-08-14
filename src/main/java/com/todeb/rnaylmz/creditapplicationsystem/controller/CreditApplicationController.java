@@ -5,9 +5,7 @@ import com.todeb.rnaylmz.creditapplicationsystem.service.CreditApplicationServic
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -20,14 +18,13 @@ public class CreditApplicationController {
 
     private CreditApplicationService creditApplicationService;
 
-    @PostMapping(name = "/all")
-    public ResponseEntity<CreditApplication> application(@Valid String identityNumber){
-
-        return null;
+    @PostMapping(name = "/add/{identityNumber}")
+    public Boolean createApplication(@PathVariable String identityNumber){
+        return creditApplicationService.createApplication(identityNumber);
     }
 
-
-
-
-
+    @GetMapping(name = "/get/{identityNumber}")
+    public CreditApplication getApplication(@PathVariable String identityNumber){
+        return creditApplicationService.getCreditApplicationByIdentityNumber(identityNumber);
+    }
 }

@@ -11,4 +11,6 @@ public interface CreditApplicationService {
     public void checkApplicationIsConfirmedOrNot(CreditApplication application);
 
     public boolean deleteCreditApplication(Customer customer);
+
+    public CreditApplication getCreditApplicationByIdentityNumber(String identityNumber);
 }

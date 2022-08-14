@@ -1,5 +1,6 @@
 package com.todeb.rnaylmz.creditapplicationsystem.service.iml;
 
+import com.todeb.rnaylmz.creditapplicationsystem.exception.EntityNotFoundException;
 import com.todeb.rnaylmz.creditapplicationsystem.model.CreditScoreRange;
 import com.todeb.rnaylmz.creditapplicationsystem.model.entity.CreditApplication;
 import com.todeb.rnaylmz.creditapplicationsystem.model.entity.CreditScore;
@@ -15,6 +16,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor
@@ -68,4 +71,12 @@ public class CreditApplicationServiceImpl implements CreditApplicationService {
         return true;
     }
 
+    @Override
+    public CreditApplication getCreditApplicationByIdentityNumber(String identityNumber) {
+        Optional<Customer> customer = customerRepository.findCustomerByIdentityNumber(identityNumber);
+      if (customer == null){
+          throw new EntityNotFoundException("customer");
+      }
+        return customer.get().getCreditApplications();
+    }
 }
