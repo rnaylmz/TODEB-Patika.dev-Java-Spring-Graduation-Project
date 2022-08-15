@@ -1,5 +1,6 @@
 package com.todeb.rnaylmz.creditapplicationsystem.config;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

@@ -2,9 +2,11 @@ package com.todeb.rnaylmz.creditapplicationsystem.model.mapper;
 
 import com.todeb.rnaylmz.creditapplicationsystem.model.dto.CustomerDTO;
 import com.todeb.rnaylmz.creditapplicationsystem.model.entity.Customer;
-import org.mapstruct.*;
 
-@Mapper
+import javax.persistence.MappedSuperclass;
+
+
+@MappedSuperclass
 public class CustomerMapper {
     public static CustomerDTO toDto(Customer customer){
         CustomerDTO customerDTO = new CustomerDTO();
