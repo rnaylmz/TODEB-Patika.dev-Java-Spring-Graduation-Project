@@ -41,3 +41,10 @@
 
 
 ![entityManagerFactory(EntityManagerFactoryBuilder)](https://user-images.githubusercontent.com/82233346/184551807-f9f3dbde-532f-406c-8200-1b7bc6081d37.png)
+
+
+# SWAGGER UI
+
+![image](https://user-images.githubusercontent.com/82233346/184567496-7110d540-1ae8-4273-b458-32412de6b447.png)
+
+
