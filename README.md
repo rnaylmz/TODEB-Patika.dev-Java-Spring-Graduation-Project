@@ -3,22 +3,31 @@
 ## REQUIRENMENTS
 
 1.Register/Login
+
 2.Customer
+
 3.Credit apllication for customer
+
 4.Giving credit score for each customer
+
 5.Credit limit calculating for giving credit limit
 
 
 ## ANALYSIS
 
 1.User login or register as customer or admin
+
 2.Customer can apply for credit from credit application 
+
 3.Credit score service produce score for each customer
+
 4.When a customer apply for credit, credit application service get credit score from customer for calculating credit limit as four conditions.
+
 - 500 score and down-rejected
 - 500-1000 score and less than 5k salary-confirmed and give 10k limit
 - 500-1000 score and greater than 5k salary-confirmed and give 20k limit
 - 1000 score and upper- calculate special limit
+
 5.Send message to phone number of customer if a apply is confirmed.
 
 
