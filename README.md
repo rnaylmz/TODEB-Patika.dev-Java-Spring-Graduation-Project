@@ -1,4 +1,4 @@
-# TODEB-Patika.dev-Java-Spring-Bitirme-Projesi
+# TODEB Patika.dev Java Spring Bitirme Projesi - Credit Application System
 
 ## REQUIRENMENTS
 
