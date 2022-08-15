@@ -1,6 +1,5 @@
 package com.todeb.rnaylmz.creditapplicationsystem.service.iml;
 
-import com.todeb.rnaylmz.creditapplicationsystem.exception.EntityNotFoundException;
 import com.todeb.rnaylmz.creditapplicationsystem.model.entity.CreditScore;
 import com.todeb.rnaylmz.creditapplicationsystem.model.entity.Customer;
 import com.todeb.rnaylmz.creditapplicationsystem.repository.ICreditScoreRepository;
@@ -9,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.SplittableRandom;
 
 @RequiredArgsConstructor
@@ -32,9 +30,5 @@ public class CreditScoreServiceImpl implements CreditScoreService {
         creditScoreRepository.getCustomerByCreditScore(new CreditScore());
         return true;
     }
-
-    //@Override
-    //public CreditScore getCreditScoreByIdentityNumber(String identityNumber) {}
-
 
 }

@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface IUserRepository extends JpaRepository<User, Integer> {
 
-    // JPQL
     boolean existsByUsername(String username);
 
     User findByUsername(String username);

@@ -3,14 +3,12 @@ package com.todeb.rnaylmz.creditapplicationsystem.service.iml;
 
 import com.todeb.rnaylmz.creditapplicationsystem.exception.EntityNotFoundException;
 import com.todeb.rnaylmz.creditapplicationsystem.model.entity.Customer;
-import com.todeb.rnaylmz.creditapplicationsystem.model.mapper.CustomerMapper;
 import com.todeb.rnaylmz.creditapplicationsystem.repository.ICustomerRepository;
 import com.todeb.rnaylmz.creditapplicationsystem.service.CustomerService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
 
 import java.util.List;
 import java.util.Optional;
@@ -21,8 +19,6 @@ import java.util.Optional;
 public class CustomerServiceImpl implements CustomerService {
 
     private final ICustomerRepository customerRepository;
-
-    //TODO metodları düzelt, doldur.
 
     @Override
     public List<Customer> getAllCustomer() {

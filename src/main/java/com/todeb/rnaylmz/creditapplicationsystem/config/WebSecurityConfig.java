@@ -42,9 +42,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/swagger-ui/*").permitAll()
                 .antMatchers("/webjars/**").permitAll()
                 .antMatchers("/v2/**").permitAll()
-                // Authorize any endpoint by a role
-//                .antMatchers("/users/delete/**").hasRole("ROLE_ADMIN")
-                // Disallow everything else..
                 .anyRequest().authenticated();
 
         // Apply JWT

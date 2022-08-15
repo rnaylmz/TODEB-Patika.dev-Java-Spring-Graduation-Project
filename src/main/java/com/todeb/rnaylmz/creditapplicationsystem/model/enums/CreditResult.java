@@ -5,7 +5,6 @@ import com.todeb.rnaylmz.creditapplicationsystem.model.entity.CreditScore;
 public enum CreditResult {
 
     CONFIRMED(new CreditScore()),
-    //NOT_RESULTED(new CreditScore()),
     REJECTED(new CreditScore());
 
     private CreditScore creditScore;

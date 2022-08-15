@@ -1,5 +1,6 @@
 package com.todeb.rnaylmz.creditapplicationsystem.exception.handler;
 
+import com.todeb.rnaylmz.creditapplicationsystem.exception.CustomJwtException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
@@ -21,13 +22,13 @@ public class GenericExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponseMap);
     }
 
-   /* @ExceptionHandler(CustomJwtException.class)
+    @ExceptionHandler(CustomJwtException.class)
     public ResponseEntity<Map<String, String>> handleCustomJwtException(CustomJwtException exception) {
         Map<String, String> errorResponseMap = new HashMap<>();
         errorResponseMap.put("error_message", exception.getMessage());
         errorResponseMap.put("error_status", exception.getHttpStatus().toString());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponseMap);
-    }*/
+    }
 
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<Map<String, String>> handleAccessDeniedException(AccessDeniedException exception) {
