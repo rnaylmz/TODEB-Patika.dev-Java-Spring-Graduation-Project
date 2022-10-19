@@ -1,5 +1,10 @@
 # TODEB Patika.dev Java Spring Bitirme Projesi - Credit Application System
 
+## USING TECHNOLOGIES
+
+* Java
+* 
+
 ## REQUIRENMENTS
 
 1.Register/Login
